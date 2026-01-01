@@ -1,0 +1,40 @@
+/* Mobile: 3 cards per row */
+@media (max-width: 768px) {
+    .card {
+        width: calc(33.333% - 16px);
+        min-width: 100px;
+        max-width: 140px;
+        height: 200px;
+        padding: 15px;
+        margin: 8px;
+        border: 5px solid white;
+    }
+
+    .card h2 {
+        font-size: 1.1rem;
+    }
+
+    .card p {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        width: calc(33.333% - 10px);
+        min-width: 90px;
+        max-width: 120px;
+        height: 180px;
+        padding: 12px;
+        margin: 5px;
+        border: 4px solid white;
+    }
+
+    .card h2 {
+        font-size: 1rem;
+    }
+
+    .card p {
+        font-size: 0.8rem;
+    }
+}

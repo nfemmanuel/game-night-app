@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', 'Helvetica Neue', 'Arial', sans-serif;
+    background-color: rgb(42, 42, 42);
+    color: white;
+    overflow: hidden;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 10px 20px;
+}
+
+/* Mobile adjustments only */
+@media (max-width: 768px) {
+    body {
+        overflow-y: auto;
+        /* Allow scrolling on mobile */
+    }
+}

@@ -1,0 +1,6 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica Neue', 'Arial', sans-serif;
+    background-color: oklch(25.994% 0.01068 17.709);
+}

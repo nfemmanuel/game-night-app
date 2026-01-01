@@ -1,0 +1,98 @@
+.card {
+    width: 225px;
+    height: 330px;
+    padding: 30px;
+    margin: 10px;
+    border-radius: 20px;
+    border: 10px solid white;
+    text-align: center;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.card h2 {
+    font-size: 1.8rem;
+    margin: 0;
+}
+
+.card p {
+    font-size: 1.1rem;
+    margin: 10px 0 0 0;
+}
+
+.available {
+    color: white;
+    cursor: pointer;
+}
+
+.available:hover {
+    transform: scale(1.05);
+}
+
+.disabled {
+    background-color: #666;
+    color: white;
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+.orange {
+    background-color: #FF6B35;
+}
+
+.orange:hover {
+    box-shadow: 0 0 20px rgba(255, 107, 53, 0.6);
+}
+
+.blue {
+    background-color: #4A90E2;
+}
+
+.blue:hover {
+    box-shadow: 0 0 20px rgba(74, 144, 226, 0.6);
+}
+
+/* Mobile: 3 cards per row, maintain 225:330 ratio */
+@media (max-width: 768px) {
+    .card {
+        width: 30vw;
+        max-width: 150px;
+        height: calc(30vw * 1.467);
+        /* Maintains 225:330 ratio */
+        max-height: 220px;
+        padding: 4%;
+        margin: 1vw;
+        border: 2vw solid white;
+        max-border-width: 8px;
+        border-radius: 15px;
+    }
+
+    .card h2 {
+        font-size: 4vw;
+        max-font-size: 1.3rem;
+    }
+
+    .card p {
+        font-size: 3vw;
+        max-font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        width: 28vw;
+        height: calc(28vw * 1.467);
+        border-width: 5px;
+    }
+
+    .card h2 {
+        font-size: 2.5vw;
+    }
+
+    .card p {
+        font-size: 2.6vw;
+    }
+}

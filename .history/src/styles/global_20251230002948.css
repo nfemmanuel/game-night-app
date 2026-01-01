@@ -1,0 +1,18 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', 'Arial', sans-serif;
+    background-color: rgb(42, 42, 42);
+    color: white;
+    overflow: hidden;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}

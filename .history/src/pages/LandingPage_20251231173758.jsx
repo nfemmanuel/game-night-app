@@ -1,0 +1,52 @@
+import { useNavigate } from 'react-router-dom';
+
+import GameCard from '../components/GameCard';
+
+function LandingPage() {
+    const navigate = useNavigate();
+
+    const handleClick = (gameName, route) => {
+        if (route) {
+            navigate(route);
+        }
+    };
+
+    return (
+        <div style={{ padding: '40px', textAlign: 'center' }}>
+            <h1 style={{ fontSize: '10rem' }}>Game Night</h1>
+
+            <div style={{
+                display: 'flex',
+                gap: '20px',
+                justifyContent: 'center',
+                marginTop: '40px',
+                flexWrap: 'wrap'
+            }}>
+                <GameCard
+                    name="Imposter"
+                    available={true}
+                    color="orange"
+                    onClick={() => handleClick("Imposter", "/imposter-setup")}
+                />
+                <GameCard
+                    name="UNO"
+                    available={false}
+                    color="blue"
+                    onClick={() => handleClick("UNO", "/uno-setup")}
+                />
+                <GameCard
+                    name="Untitled"
+                    available={false}
+                    onClick={() => { }}
+                />
+                <GameCard
+                    name="Untitled"
+                    available={false}
+                    onClick={() => { }}
+                />
+            </div>
+        </div>
+    );
+}
+
+export default LandingPage;
