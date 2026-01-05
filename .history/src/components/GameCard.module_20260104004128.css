@@ -1,0 +1,89 @@
+.card {
+    width: 225px;
+    aspect-ratio: 225 / 330;
+    padding: 30px;
+    margin: 10px;
+    border-radius: 20px;
+    border: 10px solid white;
+    text-align: center;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardName {
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin: 0;
+    line-height: 1.2;
+}
+
+.cardAvailable {
+    font-size: 1.1rem;
+    margin: 10px 0 0 0;
+}
+
+.available {
+    cursor: pointer;
+}
+
+.available:hover {
+    transform: scale(1.05);
+    filter: brightness(1.2);
+}
+
+.disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}
+
+/* Mobile: 3 cards per row */
+@media (max-width: 768px) {
+    .card {
+        width: calc(33.333% - 10px);
+        aspect-ratio: 225 / 330;
+        padding: 3vw;
+        margin: 5px;
+        border-width: 5px;
+        border-radius: 12px;
+    }
+
+    .cardName {
+        font-size: 0.65rem;
+        font-weight: bold;
+        margin-bottom: 5px;
+        line-height: 1.1;
+    }
+
+    .cardAvailable {
+        font-size: 0.5rem;
+        margin-top: 5px;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        width: calc(30% - 8px);
+        aspect-ratio: 225 / 330;
+        padding: 2.5vw;
+        margin: 4px;
+        border-width: 4px;
+    }
+
+    .cardName {
+        font-size: 1rem;
+        font-weight: bold;
+        margin-bottom: 3px;
+        line-height: 1;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .cardAvailable {
+        font-size: 0.2rem;
+        margin-top: 3px;
+        white-space: nowrap;
+    }
+}

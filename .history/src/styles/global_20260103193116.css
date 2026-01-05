@@ -1,0 +1,155 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', 'Helvetica Neue', 'Arial', sans-serif;
+    background-color: rgb(42, 42, 42);
+    color: white;
+    overflow: hidden;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 10px 20px;
+}
+
+/* Prevent scrolling under fixed buttons */
+body {
+    padding-top: 70px;
+}
+
+/* Page title positioning */
+.page-title {
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+
+    /* Page titles */
+    .page-title {
+        font-size: 2rem !important;
+        margin-bottom: 20px;
+    }
+
+    /* General headings */
+    h1 {
+        font-size: 3rem !important;
+    }
+
+    h2 {
+        font-size: 1.5rem !important;
+    }
+
+    h3 {
+        font-size: 1.2rem !important;
+    }
+
+    p {
+        font-size: 1rem !important;
+    }
+
+    /* Input fields */
+    input[type="text"] {
+        width: 100% !important;
+        max-width: 300px !important;
+        font-size: 1rem !important;
+        padding: 12px !important;
+        margin-right: 0 !important;
+        margin-bottom: 10px !important;
+    }
+
+    /* Buttons */
+    button {
+        font-size: 1rem !important;
+        padding: 12px 24px !important;
+    }
+
+    /* Smaller back/help buttons */
+    .back-button {
+        padding: 8px 12px !important;
+        font-size: 1rem !important;
+        top: 10px !important;
+        left: 10px !important;
+    }
+
+    .help-button-container {
+        top: 10px !important;
+        right: 10px !important;
+    }
+
+    .help-button {
+        width: 30px !important;
+        height: 30px !important;
+        font-size: 1.2rem !important;
+    }
+
+    /* Reveal card */
+    .reveal-card {
+        width: 280px !important;
+        height: 400px !important;
+    }
+
+    .reveal-card h2 {
+        font-size: 2rem !important;
+    }
+
+    /* Reduce padding on mobile */
+    body {
+        padding-top: 60px;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-title {
+        font-size: 1.5rem !important;
+    }
+
+    h1 {
+        font-size: 2.5rem !important;
+    }
+
+    input[type="text"] {
+        font-size: 0.9rem !important;
+        padding: 10px !important;
+    }
+
+    button {
+        font-size: 0.9rem !important;
+        padding: 10px 20px !important;
+    }
+
+    .reveal-card {
+        width: 240px !important;
+        height: 340px !important;
+    }
+
+    .reveal-card h2 {
+        font-size: 1.8rem !important;
+    }
+}
+
+/* Landing page can scroll on mobile */
+.landing-page {
+    overflow-y: auto !important;
+    height: 100vh;
+}
+
+/**?
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
