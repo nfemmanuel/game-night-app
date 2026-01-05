@@ -20,8 +20,6 @@ function App() {
 
           {/* Imposter Game Routes */}
           <Route path="/imposter-setup" element={<ImposterSetup />} />
-          <Route path="/imposter-reveal" element={<ImposterReveal />} />
-          <Route path="/imposter-voting" element={<ImposterVoting />} />
 
           {/* UNO Routes */}
           <Route path="/uno-test" element={<UnoTest />} />

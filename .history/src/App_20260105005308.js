@@ -2,8 +2,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { ThemeProvider } from './contexts/ThemeContext';
 import LandingPage from './pages/LandingPage';
 import ImposterSetup from './pages/imposter/ImposterSetup';
-import ImposterReveal from './pages/imposter/ImposterReveal';
-import ImposterVoting from './pages/imposter/ImposterVoting';
 import UnoTest from './pages/uno/UnoTest';
 import UnoLogicTest from './pages/uno/UnoLogicTest';
 import UnoSetup from './pages/uno/UnoSetup';
@@ -20,8 +18,6 @@ function App() {
 
           {/* Imposter Game Routes */}
           <Route path="/imposter-setup" element={<ImposterSetup />} />
-          <Route path="/imposter-reveal" element={<ImposterReveal />} />
-          <Route path="/imposter-voting" element={<ImposterVoting />} />
 
           {/* UNO Routes */}
           <Route path="/uno-test" element={<UnoTest />} />
