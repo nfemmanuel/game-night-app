@@ -6,19 +6,11 @@ import ModeSelector from '../components/ModeSelector';
 import SettingsButton from '../components/SettingsButton';
 import SocialButton from '../components/SocialButton';
 import { useTheme } from '../contexts/ThemeContext';
-import storageManager from '../utils/StorageManager'; // ADD THIS
 
 function LandingPage() {
     const navigate = useNavigate();
     const { theme } = useTheme();
-
-    // CHANGED: Load saved mode from localStorage
-    const [currentMode, setCurrentMode] = useState(() => {
-        const savedTabIndex = storageManager.getCurrentTab();
-        const modes = ['in-person', 'virtual', 'single'];
-        return modes[savedTabIndex] || 'in-person';
-    });
-
+    const [currentMode, setCurrentMode] = useState('in-person');
     const [direction, setDirection] = useState(0);
 
     const games = [
@@ -45,8 +37,6 @@ function LandingPage() {
         if (newIndex >= 0 && newIndex < modes.length) {
             setDirection(newDirection);
             setCurrentMode(modes[newIndex]);
-            // ADD THIS: Save to localStorage
-            storageManager.saveCurrentTab(newIndex);
         }
     };
 
@@ -54,8 +44,6 @@ function LandingPage() {
         const newIndex = modes.indexOf(newMode);
         setDirection(newIndex > currentIndex ? 1 : -1);
         setCurrentMode(newMode);
-        // ADD THIS: Save to localStorage
-        storageManager.saveCurrentTab(newIndex);
     };
 
     const variants = {
