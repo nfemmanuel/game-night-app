@@ -1,4 +1,4 @@
-import { useLocation, useNavigate } from 'react-router-dom';
+    import { useLocation, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { wordList } from '../../data/wordList';
 import BackButton from '../../components/BackButton';
