@@ -1,0 +1,326 @@
+// List of words for Imposter game
+// Total: 200 words across 12 categories
+
+export const wordList = [
+    // ==================== COMMON ITEMS ====================
+    // Everyday objects people recognize
+    "Pizza",
+    "Umbrella",
+    "Laptop",
+    "Sunglasses",
+    "Bicycle",
+    "Coffee",
+    "Camera",
+    "Backpack",
+    "Smartphone",
+    "Headphones",
+    "Passport",
+    "Skateboard",
+    "Microwave",
+    "Toothbrush",
+    "Wallet",
+    "Keys",
+    "Clock",
+    "Mirror",
+    "Candle",
+    "Pillow",
+    "Scissors",
+    "Lamp",
+    "Pencil",
+    "Chair",
+    "Blanket",
+
+    // ==================== FOOD & DRINKS ====================
+    // Popular foods that people can describe
+    "Sushi",
+    "Tacos",
+    "Burger",
+    "Ice Cream",
+    "Chocolate",
+    "Sandwich",
+    "Spaghetti",
+    "Ramen",
+    "Pancakes",
+    "Donut",
+    "Salad",
+    "Soup",
+    "Steak",
+    "Chicken Wings",
+    "French Fries",
+    "Popcorn",
+    "Cookies",
+    "Cupcake",
+    "Smoothie",
+    "Lemonade",
+    "Hot Dog",
+    "Nachos",
+    "Cereal",
+    "Yogurt",
+    "Cheese",
+
+    // ==================== ACTIVITIES & SPORTS ====================
+    // Physical activities and hobbies
+    "Basketball",
+    "Swimming",
+    "Dancing",
+    "Cooking",
+    "Reading",
+    "Singing",
+    "Running",
+    "Painting",
+    "Gaming",
+    "Hiking",
+    "Soccer",
+    "Baseball",
+    "Tennis",
+    "Skateboarding",
+    "Yoga",
+    "Fishing",
+    "Camping",
+    "Photography",
+    "Drawing",
+    "Surfing",
+    "Skiing",
+    "Bowling",
+    "Karaoke",
+    "Gardening",
+    "Cycling",
+
+    // ==================== PLACES ====================
+    // Locations people visit or know about
+    "Ocean",
+    "Mountain",
+    "Desert",
+    "Forest",
+    "Beach",
+    "Library",
+    "Hospital",
+    "Airport",
+    "Museum",
+    "Stadium",
+    "Restaurant",
+    "Mall",
+    "Park",
+    "School",
+    "Cinema",
+    "Gym",
+    "Zoo",
+    "Aquarium",
+    "Hotel",
+    "Cafe",
+    "Playground",
+    "Casino",
+    "Concert Hall",
+    "Bakery",
+    "Bank",
+
+    // ==================== ANIMALS ====================
+    // Easy to describe animals
+    "Elephant",
+    "Dolphin",
+    "Eagle",
+    "Lion",
+    "Penguin",
+    "Butterfly",
+    "Shark",
+    "Giraffe",
+    "Owl",
+    "Tiger",
+    "Monkey",
+    "Bear",
+    "Fox",
+    "Rabbit",
+    "Horse",
+    "Dog",
+    "Cat",
+    "Parrot",
+    "Kangaroo",
+    "Zebra",
+    "Turtle",
+    "Crocodile",
+    "Snake",
+    "Octopus",
+    "Whale",
+
+    // ==================== FAMOUS PEOPLE ====================
+    // Well-known real people across different fields
+    "Einstein",
+    "Shakespeare",
+    "Beyoncé",
+    "Messi",
+    "Oprah",
+    "Tesla",
+    "Mozart",
+    "Cleopatra",
+    "Obama",
+    "LeBron James",
+    "Michael Jordan",
+    "Taylor Swift",
+    "Elon Musk",
+    "Steve Jobs",
+    "Ronaldo",
+    "Lady Gaga",
+    "Elvis Presley",
+    "Michael Jackson",
+    "Tom Cruise",
+    "The Rock",
+
+    // ==================== FICTIONAL CHARACTERS ====================
+    // Iconic characters from movies, games, comics, books
+    "Batman",
+    "Superman",
+    "Spider-Man",
+    "Harry Potter",
+    "Elsa",
+    "Darth Vader",
+    "Mario",
+    "Pikachu",
+    "Sherlock Holmes",
+    "Mickey Mouse",
+    "Iron Man",
+    "Wonder Woman",
+    "Sonic",
+    "Link",
+    "Hermione",
+    "Joker",
+    "Luke Skywalker",
+    "Yoda",
+    "Hulk",
+    "Thor",
+    "Captain America",
+    "Spongebob",
+    "Shrek",
+    "Buzz Lightyear",
+    "Woody",
+
+    // ==================== PROFESSIONS ====================
+    // Jobs and careers
+    "Doctor",
+    "Teacher",
+    "Chef",
+    "Police Officer",
+    "Firefighter",
+    "Pilot",
+    "Nurse",
+    "Engineer",
+    "Lawyer",
+    "Dentist",
+    "Musician",
+    "Actor",
+    "Athlete",
+    "Artist",
+    "Scientist",
+    "Farmer",
+    "Mechanic",
+    "Architect",
+    "Plumber",
+    "Electrician",
+
+    // ==================== VEHICLES & TRANSPORTATION ====================
+    // Ways to get around
+    "Car",
+    "Airplane",
+    "Boat",
+    "Train",
+    "Helicopter",
+    "Motorcycle",
+    "Bus",
+    "Truck",
+    "Submarine",
+    "Rocket",
+    "Ambulance",
+    "Taxi",
+    "Scooter",
+    "Hot Air Balloon",
+    "Yacht",
+
+    // ==================== TECHNOLOGY ====================
+    // Tech and gadgets
+    "Computer",
+    "Tablet",
+    "Television",
+    "Robot",
+    "Drone",
+    "Video Game Console",
+    "Smartwatch",
+    "VR Headset",
+    "Speaker",
+    "Printer",
+    "Keyboard",
+    "Mouse",
+    "Charger",
+    "Remote Control",
+    "GPS",
+
+    // ==================== NATURE & WEATHER ====================
+    // Natural phenomena and elements
+    "Rainbow",
+    "Lightning",
+    "Volcano",
+    "Earthquake",
+    "Tornado",
+    "Hurricane",
+    "Sunset",
+    "Moon",
+    "Stars",
+    "Clouds",
+    "Rain",
+    "Snow",
+    "Thunder",
+    "Wind",
+    "Fog",
+
+    // ==================== ENTERTAINMENT ====================
+    // Movies, shows, bands, entertainment brands
+    "Star Wars",
+    "Marvel",
+    "Disney",
+    "Netflix",
+    "YouTube",
+    "TikTok",
+    "Instagram",
+    "Spotify",
+    "Minecraft",
+    "Fortnite",
+    "Pokemon",
+    "The Beatles",
+    "Game of Thrones",
+    "Friends",
+    "The Office",
+];
+
+// Optional: Category definitions for future features
+// Total words: 250 (exceeded 200 goal - bonus!)
+export const categories = {
+    "Common Items": { start: 0, count: 25 },
+    "Food & Drinks": { start: 25, count: 25 },
+    "Activities & Sports": { start: 50, count: 25 },
+    "Places": { start: 75, count: 25 },
+    "Animals": { start: 100, count: 25 },
+    "Famous People": { start: 125, count: 20 },
+    "Fictional Characters": { start: 145, count: 25 },
+    "Professions": { start: 170, count: 20 },
+    "Vehicles": { start: 190, count: 15 },
+    "Technology": { start: 205, count: 15 },
+    "Nature & Weather": { start: 220, count: 15 },
+    "Entertainment": { start: 235, count: 15 },
+};
+
+// Helper function to get random word
+export const getRandomWord = () => {
+    return wordList[Math.floor(Math.random() * wordList.length)];
+};
+
+// Helper function to get words by category (future feature)
+export const getWordsByCategory = (categoryName) => {
+    const category = categories[categoryName];
+    if (!category) return [];
+    return wordList.slice(category.start, category.start + category.count);
+};
+
+// Helper function to get random word from specific category (future feature)
+export const getRandomWordFromCategory = (categoryName) => {
+    const categoryWords = getWordsByCategory(categoryName);
+    if (categoryWords.length === 0) return null;
+    return categoryWords[Math.floor(Math.random() * categoryWords.length)];
+};

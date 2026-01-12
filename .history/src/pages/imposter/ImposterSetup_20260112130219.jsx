@@ -32,7 +32,7 @@ function SortablePlayer({ id, player, index, onRemove, theme }) {
         padding: '10px 20px',
         borderRadius: '10px',
         userSelect: 'none',
-        // Removed touchAction: 'none' - was preventing scrolling!
+        touchAction: 'none',  // CRITICAL: Prevents browser scroll during drag
         opacity: isDragging ? 0.5 : 1,
         border: `2px solid ${theme.secondary}`
     };
@@ -41,25 +41,16 @@ function SortablePlayer({ id, player, index, onRemove, theme }) {
         <li ref={setNodeRef} style={style}>
             <span
                 {...attributes}
+                {...listeners}
                 style={{
                     color: theme.textPrimary,
                     flex: 1,
+                    cursor: 'grab',
                     display: 'flex',
                     alignItems: 'center'
                 }}
             >
-                <span 
-                    {...listeners}  // MOVED: Only the handle is draggable now
-                    style={{ 
-                        marginRight: '10px', 
-                        color: theme.textSecondary,
-                        cursor: 'grab',
-                        padding: '5px',  // Bigger touch target
-                        touchAction: 'none'  // Prevent scroll on handle
-                    }}
-                >
-                    ☰
-                </span>
+                <span style={{ marginRight: '10px', color: theme.textSecondary }}>☰</span>
                 {index + 1}. {player}
             </span>
             <button
@@ -111,7 +102,7 @@ function ImposterSetup() {
         }),
         useSensor(TouchSensor, {
             activationConstraint: {
-                delay: 150,      // Short delay - allows scroll but drag still works on handle
+                delay: 200,
                 tolerance: 5,
             },
         })
@@ -248,7 +239,7 @@ function ImposterSetup() {
                             alignItems: 'center',
                             justifyContent: 'space-between',
                             gap: '10px',
-                            fontSize: isMobile ? '1rem' : '1.1rem'
+                            fontSize: isMobile ? '1rem' : '1.1rem',
                         }}>
                             <span>Number of Imposters:</span>
                             <select 
@@ -261,8 +252,7 @@ function ImposterSetup() {
                                     border: `2px solid ${theme.light}`,
                                     backgroundColor: theme.bgMedium,
                                     color: theme.textPrimary,
-                                    cursor: 'pointer',
-                                    fontFamily: 'inherit'
+                                    cursor: 'pointer'
                                 }}
                             >
                                 <option value={1}>1 Imposter</option>

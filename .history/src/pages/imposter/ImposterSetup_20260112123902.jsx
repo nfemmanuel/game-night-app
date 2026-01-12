@@ -32,7 +32,6 @@ function SortablePlayer({ id, player, index, onRemove, theme }) {
         padding: '10px 20px',
         borderRadius: '10px',
         userSelect: 'none',
-        // Removed touchAction: 'none' - was preventing scrolling!
         opacity: isDragging ? 0.5 : 1,
         border: `2px solid ${theme.secondary}`
     };
@@ -41,25 +40,16 @@ function SortablePlayer({ id, player, index, onRemove, theme }) {
         <li ref={setNodeRef} style={style}>
             <span
                 {...attributes}
+                {...listeners}
                 style={{
                     color: theme.textPrimary,
                     flex: 1,
+                    cursor: 'grab',
                     display: 'flex',
                     alignItems: 'center'
                 }}
             >
-                <span 
-                    {...listeners}  // MOVED: Only the handle is draggable now
-                    style={{ 
-                        marginRight: '10px', 
-                        color: theme.textSecondary,
-                        cursor: 'grab',
-                        padding: '5px',  // Bigger touch target
-                        touchAction: 'none'  // Prevent scroll on handle
-                    }}
-                >
-                    ☰
-                </span>
+                <span style={{ marginRight: '10px', color: theme.textSecondary }}>☰</span>
                 {index + 1}. {player}
             </span>
             <button
@@ -111,7 +101,7 @@ function ImposterSetup() {
         }),
         useSensor(TouchSensor, {
             activationConstraint: {
-                delay: 150,      // Short delay - allows scroll but drag still works on handle
+                delay: 200,
                 tolerance: 5,
             },
         })
@@ -167,13 +157,11 @@ function ImposterSetup() {
         <div style={{
             padding: '20px',
             minHeight: '100vh',
-            maxHeight: '100vh',  // ADDED: Prevent page from growing
             display: 'flex',
             flexDirection: 'column',
             boxSizing: 'border-box',
             backgroundColor: theme.bgMedium,
-            color: theme.textPrimary,
-            overflow: 'hidden'  // ADDED: Prevent whole page scroll
+            color: theme.textPrimary
         }}>
             <BackButton to="/" />
             <HelpButton helpText="Add at least 3 players, then start the game. Select how many imposters and whether to enable hints!" />
@@ -255,14 +243,14 @@ function ImposterSetup() {
                                 value={numImposters}
                                 onChange={(e) => setNumImposters(parseInt(e.target.value))}
                                 style={{
+                                    fontFamily: 'inherit',
                                     padding: '8px 12px',
                                     fontSize: isMobile ? '1rem' : '1.1rem',
                                     borderRadius: '5px',
                                     border: `2px solid ${theme.light}`,
                                     backgroundColor: theme.bgMedium,
                                     color: theme.textPrimary,
-                                    cursor: 'pointer',
-                                    fontFamily: 'inherit'
+                                    cursor: 'pointer'
                                 }}
                             >
                                 <option value={1}>1 Imposter</option>
@@ -278,8 +266,9 @@ function ImposterSetup() {
                             display: 'flex', 
                             alignItems: 'center',
                             gap: '10px',
-                            fontSize: isMobile ? '1rem' : '1.1rem',
-                            cursor: 'pointer'
+                            fontSize: isMobile ?    '1rem' : '1.1rem',
+                            cursor: 'pointer',
+                            justi
                         }}>
                             <input
                                 type="checkbox"

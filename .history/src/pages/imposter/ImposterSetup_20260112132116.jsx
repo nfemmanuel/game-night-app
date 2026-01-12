@@ -262,7 +262,7 @@ function ImposterSetup() {
                                     backgroundColor: theme.bgMedium,
                                     color: theme.textPrimary,
                                     cursor: 'pointer',
-                                    fontFamily: 'inherit'
+                                    
                                 }}
                             >
                                 <option value={1}>1 Imposter</option>

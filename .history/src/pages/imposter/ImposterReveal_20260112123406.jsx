@@ -1,6 +1,6 @@
-import { useLocation, useNavigate } from 'react-router-dom';
+    import { useLocation, useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { wordList, getUniqueHintsForImposters } from '../../data/wordList';
+import { wordList } from '../../data/wordList';
 import BackButton from '../../components/BackButton';
 import HelpButton from '../../components/HelpButton';
 import { useTheme } from '../../contexts/ThemeContext';
@@ -11,27 +11,14 @@ function ImposterReveal() {
     const location = useLocation();
     const navigate = useNavigate();
     const { theme } = useTheme();
-    
     const players = location.state?.players || [];
-    const numImposters = location.state?.numImposters || 1;
-    const hintsEnabled = location.state?.hintsEnabled || false;
 
-    // Select random imposters and word once when component mounts
-    const [imposters] = useState(() => {
-        if (players.length === 0) return [];
-        const shuffled = [...players].sort(() => Math.random() - 0.5);
-        return shuffled.slice(0, numImposters);
-    });
-
+    const [imposter] = useState(() =>
+        players.length > 0 ? players[Math.floor(Math.random() * players.length)] : null
+    );
     const [word] = useState(() =>
         wordList[Math.floor(Math.random() * wordList.length)]
     );
-
-    // Get unique hints for each imposter
-    const [imposterHints] = useState(() => {
-        if (!hintsEnabled) return [];
-        return getUniqueHintsForImposters(word, numImposters);
-    });
 
     const [currentPlayerIndex, setCurrentPlayerIndex] = useState(0);
     const [isRevealed, setIsRevealed] = useState(false);
@@ -60,8 +47,7 @@ function ImposterReveal() {
     }
 
     const currentPlayer = players[currentPlayerIndex];
-    const imposterIndex = imposters.indexOf(currentPlayer);
-    const isImposter = imposterIndex !== -1;
+    const isImposter = currentPlayer === imposter;
 
     const handlePressStart = () => {
         setIsRevealed(true);
@@ -72,36 +58,17 @@ function ImposterReveal() {
     };
 
     const nextPlayer = () => {
-    if (!canProceed) return;
+        if (!canProceed) return;
 
-    setIsRevealed(false);
-    setCanProceed(false);
+        setIsRevealed(false);
+        setCanProceed(false);
 
-    if (currentPlayerIndex < players.length - 1) {
-        setCurrentPlayerIndex(currentPlayerIndex + 1);
-    } else {
-        navigate('/imposter-voting', {
-            state: { 
-                players, 
-                imposter: imposters[0],  // Backwards compatible with old voting screen
-                imposters,                // New array for future features
-                word 
-            }
-        });
-    }
-};
-
-    // Get display text for current player
-    const getDisplayText = () => {
-        if (!isImposter) {
-            return word;
-        }
-        
-        // Imposter
-        if (hintsEnabled) {
-            return `Hint: ${imposterHints[imposterIndex]}`;
+        if (currentPlayerIndex < players.length - 1) {
+            setCurrentPlayerIndex(currentPlayerIndex + 1);
         } else {
-            return "You're the imposter.\nShh! 🤫";
+            navigate('/imposter-voting', {
+                state: { players, imposter, word }
+            });
         }
     };
 
@@ -116,11 +83,7 @@ function ImposterReveal() {
             color: theme.textPrimary
         }}>
             <BackButton to="/imposter-setup" preserveState={true} />
-            <HelpButton helpText={
-                hintsEnabled 
-                    ? "Press and hold to reveal your role. Regular players see the word, imposters get a hint!" 
-                    : "Press and hold to reveal your role. If you see a word, remember it! If you're the imposter, stay quiet!"
-            } />
+            <HelpButton helpText="Press and hold the card to reveal your role. If you see a word, remember it! If you're the imposter, stay quiet!" />
 
             {/* SECTION 1: Title + Info */}
             <div style={{
@@ -133,11 +96,6 @@ function ImposterReveal() {
                 <p style={{ fontSize: isMobile ? '1rem' : '1.2rem', color: theme.textSecondary, margin: '10px 0' }}>
                     Player {currentPlayerIndex + 1} of {players.length}
                 </p>
-                {numImposters > 1 && (
-                    <p style={{ fontSize: isMobile ? '0.9rem' : '1rem', color: theme.accent, margin: '5px 0' }}>
-                        {numImposters} imposters in this game
-                    </p>
-                )}
                 <p style={{ fontSize: isMobile ? '1.2rem' : '1.5rem', color: theme.accent, margin: '10px 0' }}>
                     Hold to reveal
                 </p>
@@ -180,15 +138,12 @@ function ImposterReveal() {
                     </h2>
 
                     {isRevealed && (
-                        <div style={{ 
-                            fontSize: isMobile ? '1.8rem' : '2.2rem', 
-                            fontWeight: 'bold', 
-                            color: theme.textPrimary, 
-                            textAlign: 'center', 
-                            padding: '0 20px',
-                            whiteSpace: 'pre-line'
-                        }}>
-                            {getDisplayText()}
+                        <div style={{ fontSize: isMobile ? '2rem' : '2.5rem', fontWeight: 'bold', color: theme.textPrimary, textAlign: 'center', padding: '0 20px' }}>
+                            {isImposter ? (
+                                <p>You're the imposter.<br />Shh! 🤫</p>
+                            ) : (
+                                <p>{word}</p>
+                            )}
                         </div>
                     )}
 

@@ -72,24 +72,19 @@ function ImposterReveal() {
     };
 
     const nextPlayer = () => {
-    if (!canProceed) return;
+        if (!canProceed) return;
 
-    setIsRevealed(false);
-    setCanProceed(false);
+        setIsRevealed(false);
+        setCanProceed(false);
 
-    if (currentPlayerIndex < players.length - 1) {
-        setCurrentPlayerIndex(currentPlayerIndex + 1);
-    } else {
-        navigate('/imposter-voting', {
-            state: { 
-                players, 
-                imposter: imposters[0],  // Backwards compatible with old voting screen
-                imposters,                // New array for future features
-                word 
-            }
-        });
-    }
-};
+        if (currentPlayerIndex < players.length - 1) {
+            setCurrentPlayerIndex(currentPlayerIndex + 1);
+        } else {
+            navigate('/imposter-voting', {
+                state: { players, imposter: imposter, imposters, word }
+            });
+        }
+    };
 
     // Get display text for current player
     const getDisplayText = () => {

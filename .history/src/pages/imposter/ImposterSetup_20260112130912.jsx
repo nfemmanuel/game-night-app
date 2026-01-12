@@ -32,7 +32,7 @@ function SortablePlayer({ id, player, index, onRemove, theme }) {
         padding: '10px 20px',
         borderRadius: '10px',
         userSelect: 'none',
-        // Removed touchAction: 'none' - was preventing scrolling!
+        touchAction: 'none',  // CRITICAL: Prevents browser scroll during drag
         opacity: isDragging ? 0.5 : 1,
         border: `2px solid ${theme.secondary}`
     };
@@ -111,7 +111,7 @@ function ImposterSetup() {
         }),
         useSensor(TouchSensor, {
             activationConstraint: {
-                delay: 150,      // Short delay - allows scroll but drag still works on handle
+                delay: 0,
                 tolerance: 5,
             },
         })
@@ -261,8 +261,7 @@ function ImposterSetup() {
                                     border: `2px solid ${theme.light}`,
                                     backgroundColor: theme.bgMedium,
                                     color: theme.textPrimary,
-                                    cursor: 'pointer',
-                                    fontFamily: 'inherit'
+                                    cursor: 'pointer'
                                 }}
                             >
                                 <option value={1}>1 Imposter</option>
