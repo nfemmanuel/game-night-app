@@ -43,7 +43,6 @@ function App() {
           <Route path="/mafia-game" element={<MafiaGame />} />
           <Route path="/mafia-reveal" element={<MafiaReveal />} />
           <Route path="/mafia-results" element={<MafiaResults />} />
-          <Route path="/mafia-narrator" element={<MafiaNarrator />} />
         </Routes>
       </Router>
     </ThemeProvider>

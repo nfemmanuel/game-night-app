@@ -14,7 +14,7 @@ import MafiaSetup from './pages/mafia/MafiaSetup';
 import MafiaGame from './pages/mafia/MafiaGame';
 import MafiaReveal from './pages/mafia/MafiaReveal';
 import MafiaResults from './pages/mafia/MafiaResults';
-import MafiaNarrator from './pages/mafia/MafiaNarrator';
+impo
 
 function App() {
   return (
@@ -43,7 +43,6 @@ function App() {
           <Route path="/mafia-game" element={<MafiaGame />} />
           <Route path="/mafia-reveal" element={<MafiaReveal />} />
           <Route path="/mafia-results" element={<MafiaResults />} />
-          <Route path="/mafia-narrator" element={<MafiaNarrator />} />
         </Routes>
       </Router>
     </ThemeProvider>

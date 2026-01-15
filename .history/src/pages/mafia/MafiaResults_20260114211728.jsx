@@ -275,7 +275,7 @@ function MafiaResults() {
                         border: `2px solid ${theme.light}`
                     }}
                 >
-                    🔄 Play Again
+                    🔄 Play Again (Same Players)
                 </button>
 
                 <button

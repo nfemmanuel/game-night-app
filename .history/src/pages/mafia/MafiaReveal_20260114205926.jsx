@@ -122,7 +122,6 @@ function MafiaReveal() {
             // All players revealed, go to narrator handoff screen
             navigate('/mafia-narrator', {
                 state: { 
-                    players: players, // Add at top level for back navigation
                     gameState: {
                         players: gameState.players,
                         phase: gameState.phase,
@@ -158,7 +157,11 @@ function MafiaReveal() {
             backgroundColor: theme.bgMedium,
             color: theme.textPrimary
         }}>
-            <BackButton to="/mafia-setup" preserveState={true} />
+            <BackButton 
+                to="/mafia-setup" 
+                state={{ players: players }}
+                preserveState={true}
+            />
             <HelpButton helpText="Press and hold the card to reveal your role. Keep it secret!" />
 
             {/* SECTION 1: Title + Info */}

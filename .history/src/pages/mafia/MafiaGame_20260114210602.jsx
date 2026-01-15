@@ -273,7 +273,12 @@ function MafiaGame() {
             color: theme.textPrimary,
             overflow: 'hidden'
         }}>
-            <BackButton to="/mafia-setup" preserveState={true} />
+            <BackButton 
+                to="/mafia-setup" 
+                state={{ 
+                    players: gameState.players.map(p => p.name)
+                }}
+            />
             <HelpButton helpText={
                 gameState.phase === 'night'
                     ? "Narrator: Tap players for night actions. Use undo if you make a mistake. End phase when ready."

@@ -109,10 +109,44 @@ function MafiaSetup() {
     const { theme } = useTheme();
 
     const [playerName, setPlayerName] = useState('');
-    const [players, setPlayers] = useState(location.state?.players || []);
+    const [players, setPlayers] = useState(() => {
+        // Extract players from location.state
+        const stateData = location.state?.players;
+        
+        console.log('=== MafiaSetup Initialization ===');
+        console.log('Full location:', location);
+        console.log('location.state:', location.state);
+        console.log('Players data:', stateData);
+        
+        if (!stateData || stateData.length === 0) {
+            console.log('❌ No players in state');
+            return [];
+        }
+        
+        console.log('First player:', stateData[0]);
+        console.log('Type:', typeof stateData[0]);
+        
+        // If it's an array of objects (MafiaPlayer objects from MafiaGame)
+        if (typeof stateData[0] === 'object' && stateData[0].name) {
+            console.log('✅ Converting objects to names');
+            const names = stateData.map(p => p.name);
+            console.log('Result:', names);
+            return names;
+        }
+        
+        // If it's already an array of strings (from MafiaReveal)
+        if (typeof stateData[0] === 'string') {
+            console.log('✅ Using strings directly');
+            console.log('Result:', stateData);
+            return stateData;
+        }
+        
+        console.log('❌ Unknown format');
+        return [];
+    });
     const [numMafia, setNumMafia] = useState(1);
     const [discussionTime, setDiscussionTime] = useState(60);
-    const [settingsExpanded, setSettingsExpanded] = useState(false);
+    const [settingsExpanded, setSettingsExpanded] = useState(false); // For mobile collapsible
 
     const isMobile = window.innerWidth <= 768;
 

@@ -109,10 +109,33 @@ function MafiaSetup() {
     const { theme } = useTheme();
 
     const [playerName, setPlayerName] = useState('');
-    const [players, setPlayers] = useState(location.state?.players || []);
+    const [players, setPlayers] = useState(() => {
+        // Extract players from location.state
+        const stateData = location.state?.players;
+        
+        console.log('MafiaSetup - Received state:', location.state);
+        console.log('MafiaSetup - Players data:', stateData);
+        
+        if (!stateData || stateData.length === 0) return [];
+        
+        // If it's an array of objects (MafiaPlayer objects from MafiaGame)
+        if (typeof stateData[0] === 'object' && stateData[0].name) {
+            console.log('MafiaSetup - Converting objects to names');
+            return stateData.map(p => p.name);
+        }
+        
+        // If it's already an array of strings (from MafiaReveal)
+        if (typeof stateData[0] === 'string') {
+            console.log('MafiaSetup - Using string array directly');
+            return stateData;
+        }
+        
+        console.log('MafiaSetup - Unknown format, returning empty');
+        return [];
+    });
     const [numMafia, setNumMafia] = useState(1);
     const [discussionTime, setDiscussionTime] = useState(60);
-    const [settingsExpanded, setSettingsExpanded] = useState(false);
+    const [settingsExpanded, setSettingsExpanded] = useState(false); // For mobile collapsible
 
     const isMobile = window.innerWidth <= 768;
 
